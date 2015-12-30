@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/207"/>
+	<classpathentry kind="lib" path="lib/OpenSwing.jar"/>
+	<classpathentry kind="lib" path="lib/swing-layout-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/207/uif_framework.jar"/>
+	<classpathentry kind="lib" path="lib/wizard.jar"/>
+	<classpathentry kind="lib" path="C:/207/adaptor_server.jar"/>
+	<classpathentry kind="lib" path="C:/207/adaptor_util.jar"/>
+	<classpathentry kind="lib" path="C:/207/base_adaptor.jar"/>
+	<classpathentry kind="lib" path="C:/207/teamcenter2009.jar"/>
+	<classpathentry kind="lib" path="C:/207/teamcenterua.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

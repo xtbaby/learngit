@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="70CADInterface" default="all" basedir=".">
+	<property name="build" value="."></property>
+	<property name="bundle" value="../bundles"></property>
+	<property name="dist" value="./${ant.project.name}.jar"></property>
+	<property name="src" value="src"></property>
+	<property name="classes" value="bin"></property>
+	<property name="lib" value="lib"></property>
+
+	<path id="classpath">
+		<fileset dir="lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="c:\207">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+    <!-- Create output directory. -->
+    <target name="init">
+        <mkdir dir="${classes}"/>
+    </target>
+
+
+	<!-- Compile and JAR -->
+    <target name="all" depends="init">
+        <antcall target="java.compile"/>
+        <antcall target="java.jar"/>
+    </target>
+
+    <!-- Recompile everything and JAR -->
+    <target name="rebuild" depends="init">
+        <antcall target="cleanall"/>
+        <antcall target="java.compile"/>
+        <antcall target="java.jar"/>
+    </target>
+
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset file="${dist}">
+				<include name="${ant.project.name}.jar"/>
+			</fileset>
+		</delete>
+	</target>
+
+ 	<target name="cleanall">
+		<delete includeemptydirs="true">
+			<fileset dir="${classes}" >
+				<include name="**/*"/>
+			</fileset>
+			<fileset file="${dist}">
+				<!--<include name="tdm_conversion.jar"/>-->
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="java.compile" depends="clean" description="Compile java source code">
+		<javac classpathref="classpath" srcdir="${src}" destdir="${classes}" includeAntRuntime="false">
+		</javac>
+		<copy todir="${classes}">
+			<fileset dir="${src}">
+				<include name="**/*.properties" />
+				<include name="**/*.xml"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.png"/>
+			</fileset>
+		</copy>
+	</target>
+
+
+	<target name="java.jar" depends="java.compile" description="Create JAR archieves">
+		<jar destfile="${dist}" manifest="META-INF/MANIFEST.MF">
+			<fileset dir="${classes}">
+				<include name="**/*"/>
+				<exclude name="test/**/*"/>
+			</fileset>
+			<zipfileset src="lib/OpenSwing.jar"/> 
+			<zipfileset src="lib/swing-layout-1.0.jar"/> 
+			<zipfileset src="lib/wizard.jar"/> 
+ 		</jar>
+		<copy file="${dist}" overwrite="true" todir="C:\UFCROOT\components">
+		</copy>
+	</target>
+
+</project>
+
+

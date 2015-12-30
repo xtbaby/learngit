@@ -1,0 +1,46 @@
+#
+# Generated from template.xargs
+# Knopflerfish release 2.0.1
+#
+
+# load common properties
+-xargs props.xargs
+
+# Prefix for searching for bundle URLs from console or command line
+-Dorg.knopflerfish.gosg.jars=file:F:/job/STDROOT/components/
+
+# Teamcenter Server Name and Port
+-Dtc.server.name=TcServer1
+-Dtc.server.port=1572
+-Dtc.server.ip=loaclhost
+-Dtc.server.type=2Tier
+
+# Adaptor Connection Mode
+-Duif.adator.keepconnection=true
+
+# Use update server switch
+-Duif.localmode=true
+
+# Auto update utility switch
+-Duif.autoupdate=true
+
+# UIF update server properties
+-Duif.server=192.168.1.188
+-Duif.port=6717
+
+# UIF adaptor server properties
+-Duif.adaptor.port=4868
+
+
+-init
+
+## Basic KF bundles
+-initlevel 1
+|-install
+-startlevel 1
+|-start
+
+# Start of these bundles are delayed since this makes start
+# order dependencies much easier
+
+
